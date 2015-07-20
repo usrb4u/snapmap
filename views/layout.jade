@@ -1,0 +1,15 @@
+doctype html
+html(lang='en')
+   head
+      title= title
+      link(rel='stylesheet', href='http://localhost:3000/stylesheets/bootstrap.css')
+      link(rel='stylesheet', href='http://localhost:3000/stylesheets/select.css')
+      script(src='http://localhost:3000/lib/angular-file-upload-shim.min.js')
+      script(src='http://localhost:3000/lib/angular.min.js')
+      script(src='http://localhost:3000/lib/angular-file-upload.min.js')
+      body(data-ng-app='webApp')
+         //.panel.panel-default
+            .panel.panel-body
+         block content
+
+
