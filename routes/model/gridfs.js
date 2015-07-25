@@ -18,7 +18,7 @@ exports.getGridFile = function(id, fn) {
              var content=new Buffer(store.length);
             // store.read()
             store.read(fn)
-            // return fn(null,st;ore);
+            // return fn(null,store);
         /*    if ((store.filename.toString() == store.fileId.toString()) 
                 && store.metadata
                 && store.metadata.filename) {
@@ -53,6 +53,7 @@ exports.putGridFileByPath = function(path, name, options, fn) {
             return fn(err);
         else
             file.writeFile(path, fn);
+            
     });
 }
  

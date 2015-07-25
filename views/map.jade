@@ -1,0 +1,24 @@
+doctype html
+html
+  head
+    meta(name='viewport', content='initial-scale=1.0, user-scalable=no')
+    |     
+    meta(charset='utf-8')
+    |     
+    title Info windows
+    |     
+    style.
+      html, body, #map-canvas {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      }
+    |     
+    script.
+     var mapInfo = !{JSON.stringify(mapData)}
+    script(src='https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true')
+    | &#x9;
+    script(src='http://inblr-uppalasr:3000/lib/maps.js')
+  |   
+  body    
+    #map-canvas

@@ -1,0 +1,45 @@
+extends layout_old
+
+block content
+	br
+	br
+	script(src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true")
+	script(src='http://inblr-uppalasr:3000/controllers/'+jsfile+'.js')
+	form(name='profileForm' novalidate)
+			div(class='container' ng-controller='mapCtrl')
+				
+				div(class='row')
+					div(class='col-md-4 col-md-push-0')
+						div(class='panel panel-default')
+							div(class='panel panel-heading') Map Information
+							div(class='panel panel-body')
+								table(class='table')
+									tbody
+										tr
+											td(align='center' width='10%') 
+												label Latitude
+											td(width='80%')
+												input.form-control(type="text" ng-model='mapinfo.latitude')
+										tr
+											td(align='center' width='10%') 
+												label Longitude
+											td(width='80%')
+												input.form-control(type="text" ng-model='mapinfo.longitude')
+										tr
+											td(align='center' width='10%') 
+												label Title
+											td(width='80%')
+												input.form-control(type="text" ng-model='mapinfo.title')
+										tr
+											td(align='center' width='10%') 
+												label Information
+											td(width='80%')
+												input.form-control(type="text" ng-model='mapinfo.info')
+										tr
+											td(align='center' width='10%') 
+												label Attach
+											td(width='80%')
+												input.form-control(type="file" ng-file-select="onFileSelect($files)" multiple ng-model='uploadObj.fileName' data-multiple="true")
+										tr
+											td
+												button.btn.btn-info(type='button' name='Add' ng-click='add()') Add

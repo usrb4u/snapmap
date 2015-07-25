@@ -1,0 +1,36 @@
+extends layout_old
+
+block content
+	.col-md-9.col-md-push-0
+	br
+	br
+	script(src='http://inblr-uppalasr:3000/controllers/'+jsfile+'.js')
+	form(name='profileForm' novalidate)
+			div(class='container' ng-controller='webCtrl')
+				
+				div(class='row')
+					div(class='col-md-6 col-md-push-3')
+						div(class='panel panel-default')
+							div(class='panel panel-heading')= title
+							div(class='panel panel-body')
+								table(class='table')
+									tbody
+										tr
+											td(align='center' width='10%') 
+												label Attach
+											td(width='80%')
+												input.form-control(type="file" ng-file-select="onFileSelect($files)" multiple ng-model='uploadObj.fileName' data-multiple="true")
+				div(class='row')
+					if recordIds.length != 0
+						div(class='col-md-4 col-md-push-3')
+							.panel.panel-default
+								.panel.panel-heading Available images 
+									.panel-panel-body
+										table.table
+											tbody
+												-each recordId in recordIds
+													tr
+														td 
+															a(href='http://inblr-uppalasr:3000/mobile/image/#{recordId._id}' onclick="window.open('http://inblr-uppalasr:3000/mobile/image/#{recordId._id}','Image','width=350,height=350,top=60,left=60');return false;")
+																img(src='http://inblr-uppalasr:3000/mobile/image/#{recordId._id}' width='40', height='40')
+														

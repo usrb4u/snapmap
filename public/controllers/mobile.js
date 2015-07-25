@@ -1,4 +1,4 @@
-var app = angular.module('webApp',['angularFileUpload']);
+var app = angular.module('searchApp',['angularFileUpload']);
 
 app.controller('webCtrl', function($scope, $http,$upload){
 
@@ -9,27 +9,25 @@ $scope.onFileSelect = function(files) {
   $scope.uploadInProgress = true;
   $scope.uploadProgress = 0;
 
-  if (angular.isArray(files)) {
+/*  if (angular.isArray(files)) {
     ufile = files[0];
-	console.log(ufile);
   }
-  
+  */
   $scope.upload = $upload.upload({
     url: '/mobile/files',
     method: 'POST',
     data: {
       type: files[0].type
     },
-    file: ufile
+    file: files
   }).progress(function(event) {
     $scope.uploadProgress = "In Progress";
     // $scope.$apply();
   }).success(function(response,data, status, headers, config) {
-    $scope.saveFile=false;
     console.log(response);
-    $scope.uploadProgress = 'Done'
+    $scope.uploadProgress = 'Done';
     alert('Uploaded Successfully');
-    window.location.href='http://localhost:3000/mobile/image'
+    window.location.href='http://localhost:3000/mobile/image';
   }).error(function(err) {
     $scope.uploadInProgress = false;
     alert('Error uploading file: ' + err.message || err);
